@@ -627,6 +627,21 @@ FLIF_DLLEXPORT void FLIF_API flif_image_write_row_RGBA8(FLIF_IMAGE* image, uint3
     catch(...) {}
 }
 
+FLIF_DLLEXPORT void FLIF_API flif_image_write_RGBA8(FLIF_IMAGE* image,  const void* buffer, size_t buffer_size_bytes) {
+    try
+    {
+        char* pp = (char*) buffer;
+        uint32_t w = flif_image_get_width(image);
+        uint32_t h = flif_image_get_height(image);
+        for (uint32_t r=0;r<h;r++) {
+        	uint32_t rs = w * 4; //sizeof(RGBA);
+        	flif_image_read_row_RGBA8(image, r, pp, rs);
+               pp += rs;
+        }
+    }
+    catch(...) {}
+}
+
 FLIF_DLLEXPORT void FLIF_API flif_image_read_row_RGBA8(FLIF_IMAGE* image, uint32_t row, void* buffer, size_t buffer_size_bytes) {
     try
     {

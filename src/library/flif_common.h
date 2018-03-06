@@ -85,6 +85,8 @@ extern "C" {
 
     FLIF_DLLIMPORT void FLIF_API flif_image_write_row_RGBA16(FLIF_IMAGE* image, uint32_t row, const void* buffer, size_t buffer_size_bytes);
     FLIF_DLLIMPORT void FLIF_API flif_image_read_row_RGBA16(FLIF_IMAGE* image, uint32_t row, void* buffer, size_t buffer_size_bytes);
+    
+    FLIF_DLLIMPORT void FLIF_API flif_image_write_RGBA8(FLIF_IMAGE* image, const void* buffer, size_t buffer_size_bytes);
 
     FLIF_DLLIMPORT void FLIF_API flif_free_memory(void* buffer);
 
